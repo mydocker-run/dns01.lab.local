@@ -1,0 +1,17 @@
+version: '3'
+services:
+  dns:
+    image: "cent7-dns:v1.01"
+    container_name: dns01
+    hostname: dns01
+    domainname: lab.local
+    restart: always
+    volumes:
+      - /srv/data/dns01:/named
+    networks:
+      ipaddr:
+        ipv4_address: 10.21.0.4
+networks:
+  ipaddr:
+    external:
+      name: docker1
